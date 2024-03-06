@@ -8,5 +8,5 @@ function applyColors(color)
 end
 
 -- applyColors()
--- applyColors("apprentice") -- term256
-applyColors("tokyonight")
+applyColors("apprentice") -- term256
+-- applyColors("tokyonight")
