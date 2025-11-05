@@ -3,6 +3,7 @@
 CREATE_NVIM_LINK=0
 CREATE_TMUX_LINK=0
 CREATE_ZSH_CUSTOM_LINK=0
+CREATE_ALACRITTY_LINK=0
 SETUP_ZSH_OMZ=0
 
 
@@ -15,6 +16,7 @@ help_message()
    echo "options:"
    echo "h     Print help."
    echo "a     Create symlink for all configuration."
+   echo "l     Create symlink for ALACRITTY configuration."
    echo "n     Create symlink for NEOVIM configuration."
    echo "t     Create symlink for TMUX configuration."
    echo "s     Setup Oh My ZSH."
@@ -22,12 +24,15 @@ help_message()
    echo
 }
 
-while getopts ":hantsz" option; do
+while getopts ":hlantsz" option; do
 	case $option in
 		a) # ALL
 			CREATE_NVIM_LINK=1
 			CREATE_TMUX_LINK=1
+			CREATE_ALACRITTY_LINK=1
 			CREATE_ZSH_CUSTOM_LINK=1;;
+		l) # ALACRITTY
+			CREATE_ALACRITTY_LINK=1;;
 		n) # NEOVIM
 			CREATE_NVIM_LINK=1;;
 		t) # TMUX
@@ -48,6 +53,11 @@ while getopts ":hantsz" option; do
 done
 SCRIPT=$(readlink -f "$0")
 BASEDIR=$(dirname "$SCRIPT")
+
+if [ "$CREATE_ALACRITTY_LINK" -eq "1" ]; then
+	echo "=> Creating Alacritty config synlink..."
+	ln -s $BASEDIR/alacritty/alacritty.toml ~/.alacritty.toml
+fi
 
 if [ "$CREATE_NVIM_LINK" -eq "1" ]; then
 	echo "=> Creating NVIM config synlink..."
