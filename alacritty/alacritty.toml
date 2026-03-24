@@ -3,3 +3,35 @@ live_config_reload = true
 
 [font]
 size = 16
+
+[colors.bright]
+black = '#555753'
+blue = '#729fcf'
+cyan = '#27d5d5'
+green = '#7dd527'
+magenta = '#ad7fa8'
+red = '#ef2929'
+white = '#eeeeec'
+yellow = '#d6c329'
+
+[colors.cursor]
+cursor = '#000000'
+text = '#ffffff'
+
+[colors.normal]
+black = '#000000'
+blue = '#3465a4'
+cyan = '#06989a'
+green = '#4e9a06'
+magenta = '#75507b'
+red = '#cc0000'
+white = '#b9bdb5'
+yellow = '#c4a000'
+
+[colors.primary]
+foreground = "#2E3436"
+background = "#EEEEEC"
+
+[colors.selection]
+background = '#b5d5ff'
+text = '#000000'

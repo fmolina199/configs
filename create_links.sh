@@ -9,19 +9,19 @@ SETUP_ZSH_OMZ=0
 
 help_message()
 {
-   # Display Help
-   echo "Create symbolic links for configuration on this repo"
-   echo
-   echo "Syntax: ${0} [-h|a|n|t|s|z]"
-   echo "options:"
-   echo "h     Print help."
-   echo "a     Create symlink for all configuration."
-   echo "l     Create symlink for ALACRITTY configuration."
-   echo "n     Create symlink for NEOVIM configuration."
-   echo "t     Create symlink for TMUX configuration."
-   echo "s     Setup Oh My ZSH."
-   echo "z     Create symlink for ZSH configuration."
-   echo
+	# Display Help
+	echo "Create symbolic links for configuration on this repo"
+	echo
+	echo "Syntax: ${0} [-h|a|n|t|s|z]"
+	echo "options:"
+	echo "-h     Print help."
+	echo "-a     Create symlink for all configuration."
+	echo "-l     Create symlink for ALACRITTY configuration."
+	echo "-n     Create symlink for NEOVIM configuration."
+	echo "-t     Create symlink for TMUX configuration."
+	echo "-s     Setup Oh My ZSH."
+	echo "-z     Create symlink for ZSH configuration."
+	echo
 }
 
 while getopts ":hlantsz" option; do
@@ -56,7 +56,7 @@ BASEDIR=$(dirname "$SCRIPT")
 
 if [ "$CREATE_ALACRITTY_LINK" -eq "1" ]; then
 	echo "=> Creating Alacritty config synlink..."
-	ln -s $BASEDIR/alacritty/alacritty.toml ~/.alacritty.toml
+	ln -s $BASEDIR/alacritty ~/.config/alacritty
 fi
 
 if [ "$CREATE_NVIM_LINK" -eq "1" ]; then
