@@ -1,4 +1,8 @@
+# Bind Ctrl+l to start of the line
+bindkey "^L" beginning-of-line
+
 alias vim="nvim"
+alias mtmux="cd repos && tmux new-session -A -s molina"
 
 function rebase {
 	if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
