@@ -31,7 +31,7 @@ function rebase {
 		default_remote="upstream"
 	fi
 
-	local target_branch="${1:-main}"
+	local target_branch="${1:-master}"
 	local target_remote="${2:-$default_remote}"
 	local stashed=0
 
