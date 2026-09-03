@@ -2,6 +2,31 @@
 
 [[ $COLORTERM = *(24bit|truecolor)* ]] || zmodload zsh/nearcolor
 
+########## History
+
+# Path to store command history
+HISTFILE=~/.zsh_history
+
+# Number of commands loaded into memory during a session
+HISTSIZE=10000
+
+# Number of commands saved to the file on disk
+SAVEHIST=10000
+
+# Share command history instantly across all open terminal sessions
+setopt SHARE_HISTORY
+
+# Append commands to the file immediately as they are typed
+#setopt INC_APPEND_HISTORY
+
+# Prevent consecutive duplicate commands from being saved
+setopt HIST_IGNORE_DUPS
+
+# Don't record commands that start with a leading space (useful for secrets)
+#setopt HIST_IGNORE_SPACE
+
+# Remove trailing blank lines from commands before saving
+#setopt HIST_REDUCE_BLANKS
 
 ########## Search history
 
