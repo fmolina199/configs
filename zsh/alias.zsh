@@ -1,8 +1,24 @@
 # Bind Ctrl+l to start of the line
 bindkey "^L" beginning-of-line
 
+# General Alias
 alias vim="nvim"
 alias mtmux="cd repos && tmux new-session -A -s molina"
+alias rgrep="grep --exclude-dir=.terraform --exclude-dir=target --exclude-dir=build -RIin"
+alias la="ls -lah --color=auto"
+alias ls="ls --color=auto"
+
+# Git Alias
+alias gst='git status'
+alias gd='git diff'
+alias gdca='git diff --cached'
+alias ga='git add'
+alias gsw='git switch'
+alias gc='git commit --verbose'
+alias gcn!='git commit --verbose --no-edit --amend'
+alias gp='git push'
+alias gpsup='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
+alias gpf='git push --force-with-lease --force-if-includes'
 
 function rebase {
 	if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then

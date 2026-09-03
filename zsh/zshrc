@@ -1,0 +1,71 @@
+########### Setup
+
+[[ $COLORTERM = *(24bit|truecolor)* ]] || zmodload zsh/nearcolor
+
+
+########## Search history
+
+# Load the built-in search functions
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+# Bind standard Up/Down arrow keys
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
+
+# Bind alternative Up/Down arrow keys (needed for some terminals/macOS)
+bindkey "^[OA" up-line-or-beginning-search
+bindkey "^[OB" down-line-or-beginning-search
+
+
+########### Completion
+
+# 1. Load the completion system
+autoload -Uz compinit
+compinit
+
+# 2. Enable an interactive visual menu for completions
+#zstyle ':completion:*' menu select
+
+# 3. Make tab completion case-insensitive (e.g., 'cd doc' finds 'Documents')
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+# 4. Colorize the completion menu to match normal `ls` colors
+[[ -z "$LS_COLORS" ]] || zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# 5. Group completion results by category
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*:options' description 'yes'
+
+############## Terminal prompt
+
+git_branch () {
+  _GIT_BRANCH=`git rev-parse --abbrev-ref HEAD 2> /dev/null || echo ""`
+  if [[ -n "$_GIT_BRANCH" ]]; then
+    _GIT_BRANCH="[%F{cyan}$_GIT_BRANCH%f] "
+  fi
+  echo "$_GIT_BRANCH"
+}
+
+if [[ $EUID -eq 0 ]]; then
+  _USERNAME="%B%F{red}%n%f%b"
+  _LIBERTY="%F{red}%B#%b%f"
+else
+  _USERNAME="%B%F{#2b4df2}%n%f%b"
+  _LIBERTY="%B%F{green}\$%f%b"
+fi
+_USERNAME="$_USERNAME@%m"
+
+setopt prompt_subst
+PROMPT=$'%{\n%}$_USERNAME | %B%~%b\n> $(git_branch)$_LIBERTY '
+RPROMPT='[%*]'
+
+
+############# LOAD Alias
+
+for lib_file ("$HOME"/.config/zsh/*.zsh); do
+  source "${lib_file}"
+done
+unset lib_file

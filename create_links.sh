@@ -19,7 +19,6 @@ help_message()
 	echo "-l     Create symlink for ALACRITTY configuration."
 	echo "-n     Create symlink for NEOVIM configuration."
 	echo "-t     Create symlink for TMUX configuration."
-	echo "-s     Setup Oh My ZSH."
 	echo "-z     Create symlink for ZSH configuration."
 	echo
 }
@@ -37,8 +36,6 @@ while getopts ":hlantsz" option; do
 			CREATE_NVIM_LINK=1;;
 		t) # TMUX
 			CREATE_TMUX_LINK=1;;
-		s) # ZSH Setup
-			SETUP_ZSH_OMZ=1;;
 		z) # ZSH Custom Links
 			CREATE_ZSH_CUSTOM_LINK=1;;
 		h) # display Help
@@ -70,14 +67,9 @@ if [ "$CREATE_TMUX_LINK" -eq "1" ]; then
 	ln -s $BASEDIR/tmux/tmux.conf ~/.tmux.conf
 fi
 
-if [ "$SETUP_ZSH_OMZ" -eq "1" ]; then
-	echo "=> Setting up omz..."
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-	sed -i -e 's/robbyrussell/bureau/g' ~/.zshrc
-	sed -i -e 's/plugins=(git)/plugins=(git docker)/g' ~/.zshrc
-fi
-
 if [ "$CREATE_ZSH_CUSTOM_LINK" -eq "1" ]; then
 	echo "=> Creating ZSH custom config synlink..."
-	ln -s $BASEDIR/omz/alias.zsh ~/.oh-my-zsh/custom/alias.zsh
+	mkdir -p ~/.config/zsh
+	ln -s $BASEDIR/zsh/zshrc ~/.zshrc
+	ln -s $BASEDIR/zsh/alias.zsh ~/.config/zsh/alias.zsh
 fi
