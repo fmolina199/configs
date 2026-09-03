@@ -6,19 +6,19 @@ size = 16
 
 [keyboard]
 # Reference https://ss64.com/ascii.html
-bindings = [
-  { key = "C", mods = "Control", action = "Copy" },
-  { key = "V", mods = "Control", action = "Paste" },
-  { key = "A", mods = "Super", chars = "\u0001" }, # send terminal SOH (Ctrl+a) stat of line
-  { key = "B", mods = "Super", chars = "\u0002" }, # send terminal STX (Ctrl+b) used by tmux
-  { key = "C", mods = "Super", chars = "\u0003" }, # send terminal EOT (Crtl+c) sigterm
-  { key = "E", mods = "Super", chars = "\u0005" }, # send terminal ENQ (Ctrl+e) end of line
-  { key = "U", mods = "Super", chars = "\u0015" }, # send terminal NAK (Ctrl+u) clear line
-  { key = "W", mods = "Super", chars = "\u0017" }, # send terminal ETB (Ctrl+w) delete word
-  { key = "L", mods = "Super", chars = "\u000c" }, # send terminal FF  (Ctrl+l) That's replaced by Ctrl+a (start of line) in zsh and tmux
-  { key = "R", mods = "Super", chars = "\u0012" }, # send terminal DC2  (Ctrl+r) recursive terminal search
-  { key = "Z", mods = "Super", chars = "\u001A" }, # send terminal EOF (Crtl+z) suspend
-]
+#bindings = [
+#  { key = "C", mods = "Control", action = "Copy" },
+#  { key = "V", mods = "Control", action = "Paste" },
+#  { key = "A", mods = "Super", chars = "\u0001" }, # send terminal SOH (Ctrl+a) stat of line
+#  { key = "B", mods = "Super", chars = "\u0002" }, # send terminal STX (Ctrl+b) used by tmux
+#  { key = "C", mods = "Super", chars = "\u0003" }, # send terminal EOT (Crtl+c) sigterm
+#  { key = "E", mods = "Super", chars = "\u0005" }, # send terminal ENQ (Ctrl+e) end of line
+#  { key = "U", mods = "Super", chars = "\u0015" }, # send terminal NAK (Ctrl+u) clear line
+#  { key = "W", mods = "Super", chars = "\u0017" }, # send terminal ETB (Ctrl+w) delete word
+#  { key = "L", mods = "Super", chars = "\u000c" }, # send terminal FF  (Ctrl+l) That's replaced by Ctrl+a (start of line) in zsh and tmux
+#  { key = "R", mods = "Super", chars = "\u0012" }, # send terminal DC2  (Ctrl+r) recursive terminal search
+#  { key = "Z", mods = "Super", chars = "\u001A" }, # send terminal EOF (Crtl+z) suspend
+#]
 
 [colors.bright]
 black = '#555753'
