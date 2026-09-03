@@ -17,6 +17,7 @@ bindings = [
   { key = "W", mods = "Super", chars = "\u0017" }, # send terminal ETB (Ctrl+w) delete word
   { key = "L", mods = "Super", chars = "\u000c" }, # send terminal FF  (Ctrl+l) That's replaced by Ctrl+a (start of line) in zsh and tmux
   { key = "R", mods = "Super", chars = "\u0012" }, # send terminal DC2  (Ctrl+r) recursive terminal search
+  { key = "Z", mods = "Super", chars = "\u001A" }, # send terminal EOF (Crtl+z) suspend
 ]
 
 [colors.bright]

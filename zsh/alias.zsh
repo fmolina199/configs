@@ -3,7 +3,7 @@ bindkey "^L" beginning-of-line
 
 # General Alias
 alias vim="nvim"
-alias mtmux="cd repos && tmux new-session -A -s molina"
+alias mtmux="cd ~/repos && tmux new-session -A -s molina"
 alias rgrep="grep --exclude-dir=.terraform --exclude-dir=target --exclude-dir=build -RIin"
 alias la="ls -lah --color=auto"
 alias ls="ls --color=auto"
