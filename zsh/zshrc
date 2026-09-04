@@ -1,5 +1,12 @@
 ########### Setup
 
+# Set COLORTERM variable if not set
+[[ -z "$COLORTERM" ]] \
+  && [[ "$TERM" == "alacritty" ]] \
+  && [[ "$SHELL" == "/usr/bin/zsh" ]] \
+  && export COLORTERM="truecolor" \
+    || echo "Don't know know $TERM and $SHELL"
+
 [[ $COLORTERM = *(24bit|truecolor)* ]] || zmodload zsh/nearcolor
 
 ########## History
