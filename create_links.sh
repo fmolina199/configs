@@ -53,6 +53,7 @@ BASEDIR=$(dirname "$SCRIPT")
 
 if [ "$CREATE_ALACRITTY_LINK" -eq "1" ]; then
 	echo "=> Creating Alacritty config synlink..."
+	mkdir -p ~/.config
 	ln -s $BASEDIR/alacritty ~/.config/alacritty
 fi
 
