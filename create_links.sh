@@ -11,7 +11,7 @@ help_message()
 	# Display Help
 	echo "Create symbolic links for configuration on this repo"
 	echo
-	echo "Syntax: ${0} [-h|a|n|t|s|z]"
+	echo "Syntax: ${0} [-h|p|a|l|n|t|z]"
 	echo "options:"
 	echo "-h     Print help."
 	echo "-p     Run git pull before running other links."
