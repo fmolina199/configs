@@ -6,7 +6,6 @@ CREATE_ZSH_CUSTOM_LINK=0
 CREATE_ALACRITTY_LINK=0
 SETUP_ZSH_OMZ=0
 
-
 help_message()
 {
 	# Display Help
@@ -48,8 +47,12 @@ while getopts ":hlantsz" option; do
 			exit;;
    esac
 done
+
 SCRIPT=$(readlink -f "$0")
 BASEDIR=$(dirname "$SCRIPT")
+
+echo "Updateing repo..."
+git pull
 
 if [ "$CREATE_ALACRITTY_LINK" -eq "1" ]; then
 	echo "=> Creating Alacritty config synlink..."
