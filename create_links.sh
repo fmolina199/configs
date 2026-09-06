@@ -59,6 +59,12 @@ if [ "$GIT_PULL" -eq "1" ]; then
 	git pull
 fi
 
+echo "=> Default git settings..."
+git config --global user.email "fmolina199@gmail.com"
+git config --global user.name "Fernando Molina"
+git config --global core.editor "vim"
+git config --global pull.rebase true
+
 if [ "$CREATE_ALACRITTY_LINK" -eq "1" ]; then
 	if [ ! -d ~/.config/alacritty ]; then
 		echo "=> Creating Alacritty config synlink..."
