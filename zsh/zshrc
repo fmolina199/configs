@@ -92,10 +92,17 @@ else
 fi
 _USERNAME="$_USERNAME@%m"
 
+molina_precmd () {
+  print
+  print -rP "$_USERNAME | %B%~%b"
+}
+
 setopt prompt_subst
-PROMPT=$'%{\n%}$_USERNAME | %B%~%b\n> $(git_branch)$_LIBERTY '
+PROMPT=$'> $(git_branch)$_LIBERTY '
 RPROMPT='[%*]'
 
+autoload -U add-zsh-hook
+add-zsh-hook precmd molina_precmd
 
 ############# LOAD Alias
 
