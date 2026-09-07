@@ -11,6 +11,9 @@ fi
 
 [[ $COLORTERM = *(24bit|truecolor)* ]] || zmodload zsh/nearcolor
 
+autoload -Uz select-word-style
+select-word-style bash
+
 ########## History
 
 # Path to store command history
