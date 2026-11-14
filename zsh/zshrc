@@ -2,7 +2,7 @@
 
 # Set COLORTERM variable if not set
 if [[ -z "$COLORTERM" ]]; then
-  if [[ "$TERM" == "alacritty" ]] && [[ "$SHELL" == "/usr/bin/zsh" ]]; then
+  if [[ "$TERM" = *(alacritty|tmux-direct)* ]] && [[ "$SHELL" == "/usr/bin/zsh" ]]; then
     export COLORTERM="truecolor"
   else
     echo "Don't know $TERM and $SHELL"
