@@ -5,7 +5,8 @@ if [[ -z "$COLORTERM" ]]; then
   if [[ "$TERM" = *(alacritty|tmux-direct)* ]] && [[ "$SHELL" == "/usr/bin/zsh" ]]; then
     export COLORTERM="truecolor"
   else
-    echo "Don't know $TERM and $SHELL"
+    echo ""
+    echo "WARN: Don't know $TERM and $SHELL"
   fi
 fi
 
